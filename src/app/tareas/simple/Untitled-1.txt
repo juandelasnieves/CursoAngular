@@ -1,0 +1,13 @@
+ng g m core -m app crea un modulo que se llame core, y enganchalo a app.
+ng g m about --routing no se le pone -m para que haga el enrutamiento perezoso
+ng g c generacion de componentes
+
+ng g c core/header -m core
+ng g c core/footer --export -m core
+
+englobar entre corchetes cualquier propiedad de HTML se convierte en propiedad angular
+ng g c core/menu -m core
+
+ng-lazy-core-ivy
+
+ng g class models/tarea-model creacion de clases
