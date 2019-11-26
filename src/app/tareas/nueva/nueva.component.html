@@ -1,0 +1,12 @@
+<p>nueva works!</p>
+<div class="form-group">
+  <label for="nombre">Nueva Tarea</label>
+  <input type="text" class="form-control" 
+    (keydown.enter) = "onAddTarea($event)"
+    [formControl] = "fcNombreTarea"
+    [(ngModel)] = "newTarea.nombre"
+    name="nombre" id="" aria-describedby="helpId" placeholder="Nueva tarea">
+  <!--[value] = 'nombre' (input) = 'nombre = value' -->
+  
+</div>
+<button type="button" class="btn btn-primary" (click) = "onAddTarea($event)">Añadir</button>

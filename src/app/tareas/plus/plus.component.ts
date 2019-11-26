@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TareaModel } from 'src/app/models/tarea-model';
 
 @Component({
   selector: 'aub-plus',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlusComponent implements OnInit {
 
+  tareas: Array<TareaModel>
+  storeName: string;
   constructor() { }
 
   ngOnInit() {
+    this.storeName = 'tareas'
+    this.tareas = JSON.parse(localStorage.getItem(this.storeName)) || []
+  }
+
+  private actualizarStore(){
+    localStorage.setItem(this.storeName, JSON.stringify(this.tareas))
+  }
+  onAddTarea(tarea: TareaModel){
+    this.tareas.push(tarea)
+    this.actualizarStore();
+
   }
 
 }
