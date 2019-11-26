@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CoreModule } from './core/core.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { FormsModule } from '@angular/forms';
 /* import { HomeModule } from './home/home.module'; se elimina por la carga perezosa */
 
 
@@ -15,9 +17,11 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     FontAwesomeModule,
     CoreModule,
+    NgbModule
     //HomeModule se elimina para la carga perezosa
   ],
   providers: [],

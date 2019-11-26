@@ -1,0 +1,12 @@
+<h3>Saludo RX</h3>
+<div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" [title]= "mensaje"
+        [formControl] = "fcNombre"
+        name="nombre" id="" aria-describedby="helpId" placeholder="Dime tu nombre">
+        
+      </div>
+      <button type="button" class="btn btn-primary" (click) = "onClickBorrar($event)">Borrar</button>
+      <div class="mt-3">
+          <p>Hola... {{fcNombre.value}}</p>
+      </div>
