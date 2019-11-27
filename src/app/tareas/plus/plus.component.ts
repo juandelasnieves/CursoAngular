@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { TareaModel } from 'src/app/models/tarea-model';
+import { EditTareaIf } from 'src/app/models/edit-tarea-interface';
 
 @Component({
   selector: 'aub-plus',
@@ -10,6 +11,8 @@ export class PlusComponent implements OnInit {
 
   tareas: Array<TareaModel>
   storeName: string;
+  @ViewChild('confirmar', {static: true}) confirmar : ElementRef
+
   constructor() { }
 
   ngOnInit() {
@@ -22,8 +25,40 @@ export class PlusComponent implements OnInit {
   }
   onAddTarea(tarea: TareaModel){
     this.tareas.push(tarea)
-    this.actualizarStore();
+    this.actualizarStore()
+
+  }
+
+  onDeleteTarea(i:number){
+    this.tareas.splice(i,1)
+    this.actualizarStore()
+  }
+
+  onChangeTarea(i:number){
+    this.tareas[i].isCompleted = !this.tareas[i].isCompleted
+    this.actualizarStore()
+  }
+
+  sendData(item: TareaModel) : TareaModel{
+    return {...item}
+  }
+
+  onEditTarea(item: EditTareaIf){
+    this.tareas[item.i].nombre = item.nombre
+    this.actualizarStore
+  }
+
+  onConfirmDelete(){
+    this.confirmar.nativeElement.showModal()
+  }
+
+  onDeleteTareas(event: boolean){
+    if(event){
+      this.tareas = []
+    }
+    this.confirmar.nativeElement.close()
 
   }
 
 }
+

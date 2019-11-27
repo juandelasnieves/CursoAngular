@@ -2,11 +2,25 @@
 <aub-nueva (addTarea) = "onAddTarea($event)"></aub-nueva>
 
 <div class="mt-3" *ngIf="tareas.length > 0; else sinLista ">
-        <h3>Lista de tareas</h3>
+    <div class="row">
+        <h3 class="col-10">Lista de tareas</h3>
+        <div class="col-2">
+            <button type="button" title="Borrar todas las tareas"
+             class="btn btn-danger btn-sm"
+             (click) = "onConfirmDelete()"
+             >
+             Borrar</button>
+        </div>
+
+    </div>
          <ul class="list-group">
              <li *ngFor="let item of tareas; let i = index"
              class="list-group-item">
-            <aub-tarea [tarea] = 'item'></aub-tarea>
+            <aub-tarea [tarea] = "sendData(item)" [i] = "i" 
+            (onDelete) = "onDeleteTarea($event)"
+            (onChange) = "onChangeTarea($event)"
+            (onEdit) = "onEditTarea($event)" > 
+        </aub-tarea>
             </li>
          </ul>
         </div>
@@ -20,8 +34,8 @@
     
     <dialog #confirmar>
         <p>Estás seguro?</p>
-        <button type="button" class="btn btn-primary pl-3" (click) = "onDeleteTarea(true)">Si</button>
-        <button type="button" class="btn btn-primary pl-3" (click) = "onDeleteTarea(false)">No</button>
+        <button type="button" class="btn btn-primary pl-3" (click) = "onDeleteTareas(true)">Si</button>
+        <button type="button" class="btn btn-primary pl-3" (click) = "onDeleteTareas(false)">No</button>
     </dialog>
     
 

@@ -21,11 +21,11 @@ export class NuevaComponent implements OnInit {
     this.fcNombreTarea = new FormControl()
   }
 
-  onAddTarea(ev){
+  onSendAddTarea(ev){
     if(!this.fcNombreTarea.value){
       return
     }
     this.newTarea = new TareaModel(this.fcNombreTarea.value, false)
-    this.addTarea.next()
+    this.addTarea.next(this.newTarea)
   }
 }

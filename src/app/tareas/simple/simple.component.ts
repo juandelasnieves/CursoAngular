@@ -63,7 +63,7 @@ export class SimpleComponent implements OnInit {
     localStorage.setItem(this.storeName, JSON.stringify(this.tareas))
   }
 
-  onModify(event: any, i: number) {
+  onModify(event: any) {
     event.target.previousElementSibling.setAttribute('contenteditable', true);
   }
 
